@@ -9,3 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello World"
+
+jobs:
+  test_1:
+    run-on: ubuntu-latest
+    needs: test
+    steps:
+      - run: echo "Hello Test"
