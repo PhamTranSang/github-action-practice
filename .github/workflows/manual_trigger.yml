@@ -1,4 +1,4 @@
-name: Hello World
+name: Manual Trigger
 
 on:
   workflow_dispatch:
