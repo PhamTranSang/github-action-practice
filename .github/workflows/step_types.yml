@@ -1,24 +1,36 @@
+# The workflow name shown in the Actions tab.
 name: Step Types
 
-on: 
+# Events that can trigger this workflow.
+on:
+  # Run only when started manually.
   workflow_dispatch:
 
+# The list of jobs in this workflow.
 jobs:
+  # Example of running an inline Bash command.
   hello_inline_bash:
     runs-on: ubuntu-latest
     steps:
+      # "run" executes a command directly on the runner.
       - run: echo "Hello World!"
 
+  # Example of running inline Python code.
   hello-inline-python:
     runs-on: ubuntu-latest
     steps:
+      # "shell: python" tells the runner to use Python.
       - run: print("Hello World!")
         shell: python
 
+  # Example of using an action from a GitHub repository.
   hello-action:
     runs-on: ubuntu-latest
     steps:
+      # The step name shown in the workflow log.
       - name: Greet with a JavaScript action
+        # Use the action in the owner/repository@ref format.
         uses: actions/hello-world-javascript-action@main
+        # Pass the "who-to-greet" input to the action.
         with:
           who-to-greet: World

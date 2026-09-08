@@ -1,0 +1,27 @@
+# The workflow name shown in the Actions tab.
+name: Hello World
+
+# Events that can trigger this workflow.
+on:
+  # Run only when started manually with "Run workflow".
+  workflow_dispatch:
+
+# A workflow contains one or more jobs.
+jobs:
+  # The ID of the first job.
+  test:
+    # Use the latest Ubuntu runner.
+    runs-on: ubuntu-latest
+    # Steps run in order inside the job.
+    steps:
+      # Run a shell command directly on the runner.
+      - run: echo "Hello World"
+
+  # The ID of the second job.
+  test_1:
+    runs-on: ubuntu-latest
+    # Run this job only after the "test" job succeeds.
+    needs: test
+    steps:
+      # Run a shell command for the second job.
+      - run: echo "Hello Test"

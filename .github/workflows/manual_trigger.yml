@@ -1,10 +1,18 @@
+# The workflow name shown in the Actions tab.
 name: Manual Trigger
 
+# Events that can trigger this workflow.
 on:
+  # Run only when started manually from GitHub or the gh CLI.
   workflow_dispatch:
 
+# The list of jobs in this workflow.
 jobs:
+  # The job ID, used to refer to this job in other settings.
   say_hello_world:
+    # Run the job on the latest Ubuntu runner.
     runs-on: ubuntu-latest
+    # Steps are executed in order.
     steps:
+      # Run a shell command to print a greeting.
       - run: echo "Hello World"
